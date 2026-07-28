@@ -749,3 +749,136 @@ Stores and retrieves data.
 - Write tests for every module.
 - Never expose database models directly to clients.
 - Follow separation of concerns for maintainability.
+
+
+
+
+ecommerce/
+│
+├── app/
+│   ├── core/
+│   │   ├── config.py
+│   │   ├── security.py
+│   │   ├── dependencies.py
+│   │   ├── constants.py
+│   │   ├── exceptions.py
+│   │   ├── logging.py
+│   │   └── middleware.py
+│   │
+│   ├── database/
+│   │   ├── session.py
+│   │   ├── base.py
+│   │   ├── migrations/
+│   │   └── seed.py
+│   │
+│   ├── modules/
+│   │
+│   │   ├── auth/
+│   │   │   ├── router.py
+│   │   │   ├── service.py
+│   │   │   ├── repository.py
+│   │   │   ├── models.py
+│   │   │   ├── schemas.py
+│   │   │   ├── dependencies.py
+│   │   │   └── utils.py
+│   │   │
+│   │   ├── users/
+│   │   │   ├── router.py
+│   │   │   ├── service.py
+│   │   │   ├── repository.py
+│   │   │   ├── models.py
+│   │   │   └── schemas.py
+│   │   │
+│   │   ├── seller/
+│   │   │   ├── router.py
+│   │   │   ├── service.py
+│   │   │   ├── repository.py
+│   │   │   ├── models.py
+│   │   │   ├── schemas.py
+│   │   │   └── permissions.py
+│   │   │
+│   │   ├── buyer/
+│   │   │   ├── router.py
+│   │   │   ├── service.py
+│   │   │   ├── repository.py
+│   │   │   ├── models.py
+│   │   │   └── schemas.py
+│   │   │
+│   │   ├── products/
+│   │   │   ├── router.py
+│   │   │   ├── service.py
+│   │   │   ├── repository.py
+│   │   │   ├── models.py
+│   │   │   ├── schemas.py
+│   │   │   ├── filters.py
+│   │   │   └── utils.py
+│   │   │
+│   │   ├── categories/
+│   │   │   ├── router.py
+│   │   │   ├── service.py
+│   │   │   ├── repository.py
+│   │   │   ├── models.py
+│   │   │   └── schemas.py
+│   │   │
+│   │   ├── cart/
+│   │   │   ├── router.py
+│   │   │   ├── service.py
+│   │   │   ├── repository.py
+│   │   │   ├── models.py
+│   │   │   └── schemas.py
+│   │   │
+│   │   ├── orders/
+│   │   │   ├── router.py
+│   │   │   ├── service.py
+│   │   │   ├── repository.py
+│   │   │   ├── models.py
+│   │   │   └── schemas.py
+│   │   │
+│   │   ├── payments/
+│   │   │   ├── router.py
+│   │   │   ├── service.py
+│   │   │   ├── repository.py
+│   │   │   ├── models.py
+│   │   │   └── schemas.py
+│   │   │
+│   │   ├── reviews/
+│   │   │   ├── router.py
+│   │   │   ├── service.py
+│   │   │   ├── repository.py
+│   │   │   ├── models.py
+│   │   │   └── schemas.py
+│   │   │
+│   │   ├── wishlist/
+│   │   │   ├── router.py
+│   │   │   ├── service.py
+│   │   │   ├── repository.py
+│   │   │   ├── models.py
+│   │   │   └── schemas.py
+│   │   │
+│   │   └── notifications/
+│   │       ├── service.py
+│   │       └── email.py
+│   │
+│   ├── shared/
+│   │   ├── enums.py
+│   │   ├── responses.py
+│   │   ├── pagination.py
+│   │   ├── validators.py
+│   │   └── utils.py
+│   │
+│   ├── tests/
+│   │   ├── auth/
+│   │   ├── seller/
+│   │   ├── buyer/
+│   │   ├── products/
+│   │   └── orders/
+│   │
+│   └── main.py
+│
+├── uploads/
+│
+├── scripts/
+│
+├── .env 
+├── requirements.txt
+└── README.md
