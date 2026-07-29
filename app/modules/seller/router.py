@@ -3,6 +3,7 @@ from fastapi import APIRouter
 from app.modules.products.schemas import product
 from .service import service
 
+
 router = APIRouter(
     prefix="/seller"
 )
