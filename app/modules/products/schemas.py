@@ -1,9 +1,23 @@
 from pydantic import BaseModel
 
-class product(BaseModel):
-    id : int
-    seller_id : int
+class productCreate(BaseModel):
+    name:str
+    price: float
+    quantity: int
+
+
+class ProductResponse(BaseModel):
+    id: int
     name : str
-    price : float
+    price: float
     quantity : int
-    image : str
+
+    model_config = {
+        "from_attributes": True
+    }
+
+class productUpdate(BaseModel):
+    name: str
+    price: float
+    quantity: int
+
