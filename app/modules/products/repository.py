@@ -3,7 +3,10 @@ from . import models, schemas
 
 
 def create_product(db: Session,product: schemas.productCreate):
-    db_product = models.Product(name=product.name, price=product.price, quantity=product.quantity )
+    db_product = models.Product(name=product.name,
+                                price=product.price, 
+                                quantity=product.quantity,
+                                image = product.image)
 
     db.add(db_product)
     db.commit()
@@ -24,6 +27,7 @@ def update_product(db: Session,db_product: models.Product,product: schemas.produ
     db_product.name = product.name
     db_product.price = product.price
     db_product.quantity = product.quantity
+    db_product.image = product.image
 
     db.commit()
     db.refresh(db_product)

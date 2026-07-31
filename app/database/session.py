@@ -1,4 +1,3 @@
-from sqlalchemy.orm import DeclarativeBase
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker 
 import os
@@ -18,8 +17,7 @@ sessionLocal = sessionmaker(
     bind = engine
 )
 
-class Base(DeclarativeBase):
-    pass
+
 
 def get_db():  #use exception handling here
     db = sessionLocal()
