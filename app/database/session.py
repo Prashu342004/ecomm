@@ -21,7 +21,7 @@ sessionLocal = sessionmaker(
 class Base(DeclarativeBase):
     pass
 
-def get_db():
+def get_db():  #use exception handling here
     db = sessionLocal()
     try:
         yield db
