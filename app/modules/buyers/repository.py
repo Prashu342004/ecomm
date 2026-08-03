@@ -1,20 +1,21 @@
 # from app.databases.database import db 
-from app.databases.models import Product
+
+from app.modules.products.models import Product
 from sqlalchemy.orm import Session
 from app.modules.buyers.models import Order , OrderItems
 from datetime import datetime
 
-def get_all_products(db : Session):
-    return db.query(Product).all()
+# def get_all_products(db : Session):
+#     return db.query(Product).all()
 
 
-def get_product_by_name(db: Session, name: str):
+# def get_product_by_name(db: Session, name: str):
 
-    return (
-        db.query(Product)
-        .filter(Product.product_name == name)
-        .first()
-    )
+#     return (
+#         db.query(Product)
+#         .filter(Product.product_name == name)
+#         .first()
+#     )
 
 
 

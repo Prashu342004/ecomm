@@ -1,22 +1,25 @@
 from fastapi import HTTPException
-# from .models import Product
+from app.modules.products.models import Product
 from sqlalchemy.orm import Session
 from app.modules.buyers.models import Order , OrderItems
 from .schemas import BuyProductRequest
 from .schemas import UpdateQuantityRequest
 
 from .repository import (
-    get_all_products,
-    get_product_by_name,
     
     create_order,
     create_order_item,
     update_product_stock
 )
 
+from app.modules.products.repository import (
+    get_all_products,
+    get_product_by_name,
+    
+)
 
 def buy_product(
-    db: Session,
+    db: Session, 
     request: BuyProductRequest
 ):  
     total = 0
@@ -93,6 +96,9 @@ def buy_product(
 def view_products(db: Session):
 
     return get_all_products(db)
+
+def view_product_by_name(db: Session , name : str):
+    return get_product_by_name(db , name)
 
 
 

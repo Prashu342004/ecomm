@@ -1,5 +1,5 @@
-from app.databases.database import Base 
-from app.databases.models import Product
+from app.databases.session import Base 
+from app.modules.products.models import Product
 from sqlalchemy import Column
 from sqlalchemy import Integer
 from sqlalchemy import String

@@ -1,14 +1,9 @@
 from fastapi import APIRouter
-# from app.databases.database import engine , Base ,SessionLocal
-# from app.databases.models import Product
-from app.databases.database import get_db
+from app.databases.session import get_db
 from fastapi import Depends
 from sqlalchemy.orm import Session
-
-
+from fastapi import Form
 from . import models
-
-# Base.metadata.create_all(bind = engine)
 
 
 from .schemas import (
@@ -19,7 +14,8 @@ from .schemas import (
 from .services import (
     view_products,
     buy_product,
-    update_quantity
+    update_quantity,
+    view_product_by_name
 )
 
 router = APIRouter()
@@ -35,16 +31,17 @@ def get_products(
     return view_products(db)
 
 
-# @router.post("/buy-product")
-# def buy(request: BuyProductRequest,
-#         db : Session = Depends(get_db)
-#         ):
 
-#     return buy_product(
-#         db,
-#         request.name,
-#         request.qty
-#     )
+@router.get("/view-products_byName/{product_name}")
+def get_products(
+    product_name :  str ,
+    db : Session = Depends(get_db)
+    
+):
+  
+    return view_product_by_name(db , product_name)
+
+
 
 
 @router.post("/buy-product")
