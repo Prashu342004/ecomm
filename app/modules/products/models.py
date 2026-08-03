@@ -1,5 +1,6 @@
 from sqlalchemy import Column, Integer, String, Numeric
 from app.database.base import Base
+from uuid import UUID
 
 
 class Product(Base):
