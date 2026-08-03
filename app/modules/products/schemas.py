@@ -1,14 +1,15 @@
 from pydantic import BaseModel
+from uuid import UUID
 
 class productCreate(BaseModel):
     name:str
     price: float
     quantity: int
-    image: str|None = None
+    image : str|None = None
 
 
 class ProductResponse(BaseModel):
-    id: int
+    id: UUID
     name : str
     price: float
     quantity : int

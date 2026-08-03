@@ -1,9 +1,12 @@
-from fastapi import HTTPException
+from fastapi import HTTPException, UploadFile
 from sqlalchemy.orm import Session
 from . import repository, schemas
+from uuid import UUID
+from app.core.file_handler import save_image
 
-
-def create_product(db: Session,product: schemas.productCreate):
+def create_product(db: Session,product: schemas.productCreate,image: UploadFile):
+    
+    product.image = save_image(image)
     return repository.create_product(db, product)
 
 
@@ -11,7 +14,7 @@ def get_products(db: Session):
     return repository.get_products(db)
 
 
-def get_product(db: Session,product_id: int):
+def get_product(db: Session,product_id: UUID):
     product = repository.get_product(db, product_id)
 
     if product is None:
@@ -21,7 +24,7 @@ def get_product(db: Session,product_id: int):
 
 
 
-def update_product(db: Session,product_id: int,product: schemas.productUpdate):
+def update_product(db: Session,product_id: UUID,product: schemas.productUpdate):
 
     db_product = repository.get_product(db, product_id)
 
@@ -32,7 +35,7 @@ def update_product(db: Session,product_id: int,product: schemas.productUpdate):
 
 
 
-def delete_product(db: Session,product_id: int):
+def delete_product(db: Session,product_id: UUID):
     product = repository.get_product(db, product_id)
 
     if product is None:
